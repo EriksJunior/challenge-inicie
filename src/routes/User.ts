@@ -3,8 +3,12 @@ import { userController } from "../controllers";
 
 const router = Router()
 
-router.get('/searchUser', (request, response) =>{
-  return userController.searchUser(request, response)
+router.post('/create', (request, response) =>{
+  return userController.create(request, response)
+})
+
+router.get('/search', (request, response) =>{
+  return userController.fyndById(request, response)
 })
 
 export default router

@@ -8,13 +8,26 @@ export class UserController {
     this.#userService = userService
   }
 
-  async searchUser(req: Request, res: Response): Promise<Response> {
+  async fyndById(req: Request, res: Response): Promise<Response> {
     try {
-      const id = await this.#userService.searchUser()
-      console.log(id)
-      return res.status(200).json({ id: id })
+      const user = req.body
+      const result = await this.#userService.fyndById(user)
+
+      return res.status(200).json({ users: result })
     } catch (error: any) {
       return res.status(400).json({ erro: error.message })
+    }
+  }
+
+  async create(req: Request, res: Response): Promise<Response> {
+    try {
+      const user = req.body
+
+      const result = await this.#userService.create(user)
+      
+      return res.status(200).json({ user: result })
+    } catch (error: any) {
+      return res.status(error.response.status).json({ erro: error.message })
     }
   }
 }
