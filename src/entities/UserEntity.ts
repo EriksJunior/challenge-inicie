@@ -8,8 +8,8 @@ class UserEntity {
   constructor(body: UserEntity){
     this.name = body.name
     this.email = body.email
-    this.gender = body.gender
-    this.status = body.status
+    this.gender = body.gender.toLowerCase()
+    this.status = body.status.toLowerCase()
   }
 }
 

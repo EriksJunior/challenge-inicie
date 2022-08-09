@@ -21,13 +21,13 @@ export class UserController {
 
   async create(req: Request, res: Response): Promise<Response> {
     try {
-      const user = req.body
+      const data = req.body
 
-      const result = await this.#userService.create(user)
+      const result = await this.#userService.create(data)
       
       return res.status(200).json({ user: result })
     } catch (error: any) {
-      return res.status(error.response.status).json({ erro: error.message })
+      return res.status( 400).json({ erro: error })
     }
   }
 }
