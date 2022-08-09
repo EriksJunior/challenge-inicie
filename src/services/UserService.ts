@@ -1,6 +1,7 @@
 import http from "../config/baseUrl";
 
 import { UserEntity } from "../entities/UserEntity";
+import JoiErrorHandlingJoi from "../utils/exceptions/JoiErrorHandlingJoi";
 import { userValidate } from "../validators/UserValidate";
 export class UserService {
 
@@ -14,12 +15,11 @@ export class UserService {
     const user = new UserEntity(value)
 
     const validationResult = await userValidate.validate(user)
-    console.log(validationResult.error)
-    if (validationResult.error){
-     throw new Error(`${validationResult.error}`)
-    }
 
-    // const { data } = await http.post('/users', user)
-    // return data
+    if (validationResult.error)
+      throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
+
+    const { data } = await http.post('/users', user)
+    return data
   }
 }
