@@ -5,7 +5,7 @@ class UserEntity {
   status: string
 
 
-  constructor(body: UserEntity){
+  constructor(body: UserEntity) {
     this.name = body.name
     this.email = body.email
     this.gender = body.gender.toLowerCase()
@@ -13,4 +13,4 @@ class UserEntity {
   }
 }
 
-export {UserEntity}
+export { UserEntity }

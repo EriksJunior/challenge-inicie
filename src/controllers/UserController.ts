@@ -24,10 +24,10 @@ export class UserController {
       const data = req.body
 
       const result = await this.#userService.create(data)
-      
+
       return res.status(200).json({ user: result })
     } catch (error: any) {
-      return res.status( 400).json({ erro: error })
+      return res.status(400).json({ erro: error })
     }
   }
 }
