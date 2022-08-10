@@ -1,25 +1,35 @@
 import http from "../config/baseUrl";
 
 import { UserEntity } from "../entities/UserEntity";
-import JoiErrorHandlingJoi from "../utils/exceptions/JoiErrorHandlingJoi";
-import { userValidate } from "../validators/UserValidate";
-export class UserService {
+import { UserValidate } from "../validators/UserValidate";
+import { UserRepo } from "../repositories/UserRepo";
 
-  async fyndById(id: any) {
-    const { data } = await http.get('/users')
-    console.log(id)
-    return data
+import JoiErrorHandlingJoi from "../utils/exceptions/JoiErrorHandlingJoi";
+export class UserService {
+  #userRepo: UserRepo
+  #userValidate: typeof UserValidate
+
+  constructor(userRepo: UserRepo, userValidate: typeof UserValidate) {
+    this.#userRepo = userRepo
+    this.#userValidate = userValidate
   }
 
-  async create(value: UserEntity) {
+  async findById(id: string): Promise<string> {
+    return await this.#userRepo.findById(id)
+  }
+
+  async findAll(): Promise<Array<object>> {
+    return await this.#userRepo.findAll()
+  }
+
+  async create(value: UserEntity): Promise<string> {
     const user = new UserEntity(value)
 
-    const validationResult = await userValidate.validate(user)
+    const validationResult = await this.#userValidate.validate(user)
 
     if (validationResult.error)
       throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
 
-    const { data } = await http.post('/users', user)
-    return data
+    return await this.#userRepo.create(user)
   }
 }
