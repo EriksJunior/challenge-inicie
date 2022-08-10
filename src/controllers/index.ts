@@ -1,12 +1,12 @@
 import { UserController } from "./UserController";
 import { UserService } from "../services/UserService";
-import { UserRepo } from "../repositories/UserRepo";
+import { GoRestProvider } from "../providers/GoRestProvider";
 import { UserValidate } from "../validators/UserValidate";
 
-const userRepo = new UserRepo()
+const goRestProvider = new GoRestProvider()
 
 const userService = new UserService(
-  userRepo,
+  goRestProvider,
   UserValidate
 )
 

@@ -1,6 +1,6 @@
 import http from "../config/baseUrl";
 
-class UserRepo {
+class GoRestProvider {
 
   async findById(id: string): Promise<string> {
     const { data } = await http.get(`/users/${id}`)
@@ -18,4 +18,4 @@ class UserRepo {
   }
 }
 
-export { UserRepo }
+export { GoRestProvider }
