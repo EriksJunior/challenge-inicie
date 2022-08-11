@@ -1,12 +1,12 @@
 class PostEntity {
   id?: string
-  userId: string
+  user_id: string
   title: string
   body: string
 
   constructor(body: PostEntity) {
     this.id = body.id
-    this.userId = body.userId
+    this.user_id = body.user_id
     this.title = body.title
     this.body = body.body
   }

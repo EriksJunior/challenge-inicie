@@ -11,7 +11,6 @@ export class UserController {
   async createUser(req: Request, res: Response): Promise<Response> {
     try {
       const data = req.body
-
       const id = await this.#userService.createUser(data)
 
       return res.status(201).json({ id: id })
