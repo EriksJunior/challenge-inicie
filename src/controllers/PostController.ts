@@ -11,9 +11,9 @@ export class PostController {
       const data = req.body
       const id = await this.#postService.createPost(data)
 
-      return res.status(200).json({id: id})
+      return res.status(201).json({ id: id })
     } catch (error: any) {
-      return res.status(400).json({ erro: error.message })
+      return res.status(error.response?.status ? error.response.status : 400).json({ erro: error.message ? error.message : error })
     }
   }
 }
