@@ -1,13 +1,15 @@
 import http from "../config/baseUrl";
 
+import { UserEntity } from "../entities/UserEntity";
+
 class GoRestProvider {
 
-  async findById(id: string): Promise<string> {
+  async findById(id: string): Promise<UserEntity> {
     const { data } = await http.get(`/users/${id}`)
     return data
   }
 
-  async findAll(): Promise<Array<object>> {
+  async findAll(): Promise<Array<UserEntity>> {
     const { data } = await http.get(`/users`)
     return data
   }

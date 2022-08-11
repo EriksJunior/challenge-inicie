@@ -27,7 +27,7 @@ export class UserController {
 
       return res.status(200).json({ user: result })
     } catch (error: any) {
-      return res.status(400).json({ erro: error.message })
+      return res.status(404).json({ erro: error.message })
     }
   }
 

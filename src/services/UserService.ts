@@ -14,16 +14,23 @@ export class UserService {
     this.#userValidate = userValidate
   }
 
-  async findById(id: string): Promise<string> {
+  async findById(id: string): Promise<UserEntity> {
     return await this.#goRestProvider.findById(id)
   }
 
-  async findAll(): Promise<Array<object>> {
+  async findAll(): Promise<Array<UserEntity>> {
     return await this.#goRestProvider.findAll()
   }
 
   async create(value: UserEntity): Promise<string> {
     const user = new UserEntity(value)
+
+    const checkEmailAlreadyExists = await this.#goRestProvider.findAll()
+
+    const emailExists = checkEmailAlreadyExists.find(e => e.email === user.email)
+
+    if (emailExists)
+      throw new Error('this user email is already in use')
 
     const validationResult = await this.#userValidate.validate(user)
 
