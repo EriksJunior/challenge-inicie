@@ -1,4 +1,5 @@
 class UserEntity {
+  id?: string
   name: string
   email: string
   gender: string
@@ -6,6 +7,7 @@ class UserEntity {
 
 
   constructor(body: UserEntity) {
+    this.id = body.id
     this.name = body.name
     this.email = body.email
     this.gender = body.gender.toLowerCase()

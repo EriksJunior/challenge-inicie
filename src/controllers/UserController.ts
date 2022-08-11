@@ -8,11 +8,11 @@ export class UserController {
     this.#userService = userService
   }
 
-  async create(req: Request, res: Response): Promise<Response> {
+  async createUser(req: Request, res: Response): Promise<Response> {
     try {
       const data = req.body
 
-      const id = await this.#userService.create(data)
+      const id = await this.#userService.createUser(data)
 
       return res.status(201).json({ id: id })
     } catch (error: any) {
@@ -20,10 +20,10 @@ export class UserController {
     }
   }
 
-  async findById(req: Request, res: Response): Promise<Response> {
+  async findUserById(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params
-      const result = await this.#userService.findById(id)
+      const result = await this.#userService.findUserById(id)
 
       return res.status(200).json({ user: result })
     } catch (error: any) {
@@ -31,9 +31,9 @@ export class UserController {
     }
   }
 
-  async findAll(req: Request, res: Response): Promise<Response> {
+  async findUserAll(req: Request, res: Response): Promise<Response> {
     try {
-      const result = await this.#userService.findAll()
+      const result = await this.#userService.findUserAll()
 
       return res.status(200).json({ users: result })
     } catch (error: any) {

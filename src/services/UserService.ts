@@ -1,5 +1,3 @@
-import http from "../config/baseUrl";
-
 import { UserEntity } from "../entities/UserEntity";
 import { UserValidate } from "../validators/UserValidate";
 import { GoRestProvider } from "../providers/GoRestProvider";
@@ -14,18 +12,18 @@ export class UserService {
     this.#userValidate = userValidate
   }
 
-  async findById(id: string): Promise<UserEntity> {
-    return await this.#goRestProvider.findById(id)
+  async findUserById(id: string): Promise<UserEntity> {
+    return await this.#goRestProvider.findUserById(id)
   }
 
-  async findAll(): Promise<Array<UserEntity>> {
-    return await this.#goRestProvider.findAll()
+  async findUserAll(): Promise<Array<UserEntity>> {
+    return await this.#goRestProvider.findUserAll()
   }
 
-  async create(value: UserEntity): Promise<string> {
+  async createUser(value: UserEntity): Promise<string> {
     const user = new UserEntity(value)
 
-    const checkEmailAlreadyExists = await this.#goRestProvider.findAll()
+    const checkEmailAlreadyExists = await this.#goRestProvider.findUserAll()
 
     const emailExists = checkEmailAlreadyExists.find(e => e.email === user.email)
 
@@ -37,6 +35,6 @@ export class UserService {
     if (validationResult.error)
       throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
 
-    return await this.#goRestProvider.create(user)
+    return await this.#goRestProvider.createUser(user)
   }
 }

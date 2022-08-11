@@ -3,16 +3,16 @@ import { userController } from "../controllers";
 
 const router = Router()
 
-router.post('/create', (request: Request, response: Response) => {
-  return userController.create(request, response)
+router.post('/createuser', (request: Request, response: Response) => {
+  return userController.createUser(request, response)
 })
 
-router.get('/findAll', (request: Request, response: Response) => {
-  return userController.findAll(request, response)
+router.get('/finduserall', (request: Request, response: Response) => {
+  return userController.findUserAll(request, response)
 })
 
-router.get('/findbyid/:id', (request: Request, response: Response) => {
-  return userController.findById(request, response)
+router.get('/finduserbyid/:id', (request: Request, response: Response) => {
+  return userController.findUserById(request, response)
 })
 
 export default router
