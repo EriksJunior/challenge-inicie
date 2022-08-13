@@ -2,6 +2,7 @@ import http from "../config/baseUrl";
 
 import { UserEntity } from "../entities/UserEntity";
 import { PostEntity } from "../entities/PostEntity";
+import { CommentsEntity } from "../entities/CommentsEntity";
 
 class GoRestProvider {
 
@@ -20,13 +21,18 @@ class GoRestProvider {
     return data.id
   }
 
-  async createAuserPost(value: PostEntity): Promise<string> {
+  async createsAuserPost(value: PostEntity): Promise<string> {
     const { data } = await http.post(`/users/${value.user_id}/posts`, value)
     return data.id
   }
 
-  async createApostComment(value: PostEntity): Promise<string> {
-    const { data } = await http.post(`/users/${value.id}/comments`, value)
+  async findPostByUserId(id: string): Promise<PostEntity> {
+    const { data } = await http.get(`/users/${id}/posts`)
+    return data
+  }
+
+  async createsApostComment(value: CommentsEntity): Promise<string> {
+    const { data } = await http.post(`/posts/${value.id}/comments`, value)
     return data.id
   }
 }
