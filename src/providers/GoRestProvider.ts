@@ -20,8 +20,9 @@ class GoRestProvider {
     return data.id
   }
 
-  async createPost(value: PostEntity): Promise<string> {
-    const { data } = await http.post('/posts', value)
+  async createAuserPost(value: PostEntity): Promise<string> {
+    const { data } = await http.post(`/users/${value.user_id}/posts`, value)
+    console.log(data)
     return data.id
   }
 }

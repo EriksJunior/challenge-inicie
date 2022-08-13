@@ -6,10 +6,11 @@ export class PostController {
     this.#postService = postService
   }
 
-  async createPost(req: Request, res: Response) {
+  async createAuserPost(req: Request, res: Response) {
     try {
       const data = req.body
-      const id = await this.#postService.createPost(data)
+
+      const id = await this.#postService.createAuserPost(data)
 
       return res.status(201).json({ id: id })
     } catch (error: any) {

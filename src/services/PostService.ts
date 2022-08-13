@@ -12,14 +12,14 @@ export class PostService {
     this.#postValidade = postValidade
   }
 
-  async createPost(value: PostEntity): Promise<string> {
+  async createAuserPost(value: PostEntity): Promise<string> {
     const post = new PostEntity(value)
-
+    
     const validationResult = await this.#postValidade.validate(post)
 
     if (validationResult.error)
       throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
 
-    return await this.#goRestProvider.createPost(post)
+    return await this.#goRestProvider.createAuserPost(post)
   }
 }

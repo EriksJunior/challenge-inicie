@@ -4,7 +4,7 @@ import { postController } from "../controllers";
 const router = Router()
 
 router.post('/createpost', (request: Request, response: Response) => {
-  return postController.createPost(request, response)
+  return postController.createAuserPost(request, response)
 })
 
 
