@@ -14,7 +14,7 @@ export class PostService {
 
   async createAuserPost(value: PostEntity): Promise<string> {
     const post = new PostEntity(value)
-    
+
     const validationResult = await this.#postValidade.validate(post)
 
     if (validationResult.error)

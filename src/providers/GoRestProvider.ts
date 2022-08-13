@@ -22,7 +22,11 @@ class GoRestProvider {
 
   async createAuserPost(value: PostEntity): Promise<string> {
     const { data } = await http.post(`/users/${value.user_id}/posts`, value)
-    console.log(data)
+    return data.id
+  }
+
+  async createApostComment(value: PostEntity): Promise<string> {
+    const { data } = await http.post(`/users/${value.id}/comments`, value)
     return data.id
   }
 }
