@@ -23,17 +23,17 @@ export class UserService {
   async createUser(value: UserEntity): Promise<string> {
     const user = new UserEntity(value)
 
+    const validationResult = await this.#userValidate.validate(user)
+
+    if (validationResult.error)
+      throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
+
     const checkEmailAlreadyExists = await this.#goRestProvider.findUserAll()
 
     const emailExists = checkEmailAlreadyExists.find(e => e.email === user.email)
 
     if (emailExists)
       throw new Error('this user email is already in use')
-
-    const validationResult = await this.#userValidate.validate(user)
-
-    if (validationResult.error)
-      throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
 
     return await this.#goRestProvider.createUser(user)
   }

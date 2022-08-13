@@ -4,8 +4,11 @@ import { PostController } from "./PostController";
 import { UserService } from "../services/UserService";
 import { PostService } from "../services/PostService";
 
-import { GoRestProvider } from "../providers/GoRestProvider";
 import { UserValidate } from "../validators/UserValidate";
+import { PostValidade } from "../validators/PostValidade";
+
+import { GoRestProvider } from "../providers/GoRestProvider";
+
 
 const goRestProvider = new GoRestProvider()
 
@@ -15,7 +18,8 @@ const userService = new UserService(
   UserValidate
 )
 const postService = new PostService(
-  goRestProvider
+  goRestProvider,
+  PostValidade
 )
 
 //controller
