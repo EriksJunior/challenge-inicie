@@ -26,7 +26,7 @@ class GoRestProvider {
     return data.id
   }
 
-  async findPostByUserId(id: string): Promise<PostEntity> {
+  async findPostByUserId(id: string): Promise<Array<object>> {
     const { data } = await http.get(`/users/${id}/posts`)
     return data
   }

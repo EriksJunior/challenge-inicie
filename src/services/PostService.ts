@@ -23,7 +23,12 @@ export class PostService {
     return await this.#goRestProvider.createsAuserPost(post)
   }
 
-  async findPostByUserId(id: string): Promise<PostEntity> {
-    return await this.#goRestProvider.findPostByUserId(id)
+  async findPostByUserId(id: string): Promise<Array<object>> {
+    const userPosts = await this.#goRestProvider.findPostByUserId(id)
+
+    if (userPosts.length < 1)
+      throw new Error('no posts by this user were found')
+
+    return userPosts
   }
 }
