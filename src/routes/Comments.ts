@@ -11,6 +11,10 @@ router.post('/createcommentpublicpostlist', (request: Request, response: Respons
   return commentsController.createFirstCommentInPublicPostList(request, response)
 })
 
+router.get('/findcommentsbypublicpostid/:id', (request: Request, response: Response) => {
+  return commentsController.findCommentsByPublicPostId(request, response)
+})
+
 router.delete('/deletecomment/:id', (request: Request, response: Response) => {
   return commentsController.deleteComment(request, response)
 })

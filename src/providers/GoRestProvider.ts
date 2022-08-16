@@ -43,8 +43,13 @@ class GoRestProvider {
   }
 
   async createFirstCommentInPublicPostList(value: CommentsEntity): Promise<string> {
-    const { data } = await http.post('https://gorest.co.in/public/v2/comments', value)
+    const { data } = await http.post('/comments', value)
     return data.id
+  }
+
+  async findCommentsByPublicPostId(id: string): Promise<Array<PostEntity>>{
+    const {data} = await http.get(`/posts/${id}/comments`)
+    return data
   }
 
   async deleteComment(id: string) {

@@ -39,6 +39,10 @@ export class CommentsService {
     return await this.#goRestProvider.createFirstCommentInPublicPostList(comment)
   }
 
+  async findCommentsByPublicPostId(value: string) {
+    return await this.#goRestProvider.findCommentsByPublicPostId(value)
+  }
+
   async deleteComment(value: string) {
     await this.#goRestProvider.deleteComment(value)
   }
