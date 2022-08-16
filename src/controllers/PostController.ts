@@ -21,6 +21,7 @@ export class PostController {
   async findPostByUserId(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params
+      
       const result = await this.#postService.findPostByUserId(id)
 
       return res.status(200).json({ post: result })

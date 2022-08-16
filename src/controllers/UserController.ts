@@ -11,6 +11,7 @@ export class UserController {
   async createUser(req: Request, res: Response): Promise<Response> {
     try {
       const data = req.body
+
       const id = await this.#userService.createUser(data)
 
       return res.status(201).json({ id: id })
@@ -22,6 +23,7 @@ export class UserController {
   async findUserById(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params
+      
       const result = await this.#userService.findUserById(id)
 
       return res.status(200).json({ user: result })
