@@ -12,7 +12,6 @@ import { CommentsValidate } from "../validators/CommentsValidate";
 
 import { GoRestProvider } from "../providers/GoRestProvider";
 
-
 const goRestProvider = new GoRestProvider()
 
 //service

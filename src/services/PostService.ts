@@ -31,4 +31,14 @@ export class PostService {
 
     return userPosts
   }
+
+  async getAllPostsFromPublicList(): Promise<Array<object>> {
+    const userPosts = await this.#goRestProvider.getAllPostsFromPublicList()
+
+    if (userPosts.length < 1)
+      throw new Error('not found')
+
+    return userPosts
+  }
+
 }

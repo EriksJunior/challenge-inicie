@@ -28,4 +28,14 @@ export class PostController {
       return res.status(404).json({ erro: error.message })
     }
   }
+
+  async getAllPostsFromPublicList(req: Request, res: Response): Promise<Response> {
+    try {
+      const result = await this.#postService.getAllPostsFromPublicList()
+
+      return res.status(200).json({ post: result })
+    } catch (error: any) {
+      return res.status(404).json({ erro: error.message })
+    }
+  }
 }

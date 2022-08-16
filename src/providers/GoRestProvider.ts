@@ -3,6 +3,7 @@ import http from "../config/baseUrl";
 import { UserEntity } from "../entities/UserEntity";
 import { PostEntity } from "../entities/PostEntity";
 import { CommentsEntity } from "../entities/CommentsEntity";
+import axios from "axios";
 
 class GoRestProvider {
 
@@ -30,9 +31,9 @@ class GoRestProvider {
     const { data } = await http.get(`/users/${id}/posts`)
     return data
   }
-  
+
   async getAllPostsFromPublicList(): Promise<Array<PostEntity>> {
-    const { data } = await http.get('https://gorest.co.in/public/v2/posts')
+    const { data } = await axios.get('https://gorest.co.in/public/v2/posts')
     return data
   }
 
@@ -40,7 +41,6 @@ class GoRestProvider {
     const { data } = await http.post(`/posts/${value.post_id}/comments`, value)
     return data.id
   }
-
 
   async createFirstCommentInPublicPostList(value: CommentsEntity): Promise<string> {
     const { data } = await http.post('https://gorest.co.in/public/v2/comments', value)
