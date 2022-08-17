@@ -11,13 +11,13 @@ describe("Create a user", () => {
 
     const userData: UserEntity = {
       name: 'User Test',
-      email: 'usertest@test40.com',
+      email: 'usertest@test55.com',
       gender: 'male',
       status: 'active'
     }
 
-    const user = await userService.createUser(userData)
-    expect(user).toHaveProperty('id')
+    const id = await userService.createUser(userData)
+    expect(id).toHaveProperty('id')
   })
 
 })

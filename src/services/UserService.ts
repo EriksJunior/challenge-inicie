@@ -20,7 +20,7 @@ export class UserService {
     return await this.#goRestProvider.findUserAll()
   }
 
-  async createUser(value: UserEntity): Promise<string> {
+  async createUser(value: UserEntity): Promise<object> {
     const user = new UserEntity(value)
 
     const validationResult = this.#userValidate.validate(user)
@@ -34,6 +34,7 @@ export class UserService {
     if (emailExists)
       throw new Error('this user email is already in use')
 
-    return await this.#goRestProvider.createUser(user)
+    const id = await this.#goRestProvider.createUser(user)
+    return {id}
   }
 }
