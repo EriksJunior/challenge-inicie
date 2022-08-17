@@ -15,7 +15,7 @@ export class PostService {
   async createsAuserPost(value: PostEntity): Promise<string> {
     const post = new PostEntity(value)
 
-    const validationResult = await this.#postValidade.validate(post)
+    const validationResult = this.#postValidade.validate(post)
 
     if (validationResult.error)
       throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)

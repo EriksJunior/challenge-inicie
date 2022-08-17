@@ -23,7 +23,7 @@ export class UserService {
   async createUser(value: UserEntity): Promise<string> {
     const user = new UserEntity(value)
 
-    const validationResult = await this.#userValidate.validate(user)
+    const validationResult = this.#userValidate.validate(user)
     if (validationResult.error)
       throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
 

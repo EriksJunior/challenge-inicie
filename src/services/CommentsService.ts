@@ -31,7 +31,7 @@ export class CommentsService {
 
     const comment = new CommentsEntity({ ...value, post_id: fistPost.id })
 
-    const validationResult = await this.#commentsValidate.validate(comment)
+    const validationResult = this.#commentsValidate.validate(comment)
 
     if (validationResult.error)
       throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
