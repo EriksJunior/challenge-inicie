@@ -9,7 +9,7 @@ describe('create user controller', () => {
       .post('/user/createuser')
       .send({
         name: 'User Test',
-        email: 'usertest@test3.com',
+        email: 'usertest@test5.com',
         gender: 'male',
         status: 'active'
       })

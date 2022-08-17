@@ -47,8 +47,8 @@ class GoRestProvider {
     return data.id
   }
 
-  async findCommentsByPublicPostId(id: string): Promise<Array<PostEntity>>{
-    const {data} = await http.get(`/posts/${id}/comments`)
+  async findCommentsByPublicPostId(id: string): Promise<Array<PostEntity>> {
+    const { data } = await http.get(`/posts/${id}/comments`)
     return data
   }
 

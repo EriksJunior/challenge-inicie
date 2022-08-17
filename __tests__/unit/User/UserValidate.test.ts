@@ -1,16 +1,17 @@
 import Joi from "joi";
 import { matchers } from "jest-joi";
+import { UserEntity } from "../../../src/entities/UserEntity";
 
 expect.extend(matchers);
 
-const mockUserData = {
-  name: 'User Test',
-  email: 'usertest@test2.com',
-  gender: 'female',
-  status: 'active'
-}
-
 describe('validate a user', () => {
+
+  const userData: UserEntity = {
+    name: 'User Test',
+    email: 'usertest@test6.com',
+    gender: 'male',
+    status: 'active'
+  }
 
   it('user is valid', () => {
     const validationResult = Joi.object({
@@ -21,7 +22,7 @@ describe('validate a user', () => {
       status: Joi.string().required().valid('active', 'inactive').messages({ 'string.empty': 'the status cannot be empty', 'any.only': 'fill with active or inactive' })
     }).options({ abortEarly: false })
 
-    expect(mockUserData).toMatchSchema(validationResult)
+    expect(userData).toMatchSchema(validationResult)
   })
 
 })
