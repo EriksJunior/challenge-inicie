@@ -137,7 +137,7 @@ export default {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
+  setupFiles: ["<rootDir>/src/app.ts"],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // The number of seconds after which a test is considered as slow and reported as such in the results.
