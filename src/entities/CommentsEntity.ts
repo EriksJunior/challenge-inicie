@@ -1,6 +1,6 @@
 class CommentsEntity {
   id?: string
-  post_id: string | undefined
+  post_id: string | undefined | number
   name: string
   email: string
   body: string
