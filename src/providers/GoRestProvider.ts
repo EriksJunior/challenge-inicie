@@ -32,7 +32,7 @@ class GoRestProvider {
     return data
   }
 
-  async getAllPostsFromPublicList(): Promise<Array<PostEntity>> {
+  async findAllPostsFromPublicList(): Promise<Array<PostEntity>> {
     const { data } = await axios.get('https://gorest.co.in/public/v2/posts')
     return data
   }

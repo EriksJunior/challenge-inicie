@@ -32,8 +32,8 @@ export class PostService {
     return userPosts
   }
 
-  async getAllPostsFromPublicList(): Promise<Array<object>> {
-    const userPosts = await this.#goRestProvider.getAllPostsFromPublicList()
+  async findAllPostsFromPublicList(): Promise<Array<object>> {
+    const userPosts = await this.#goRestProvider.findAllPostsFromPublicList()
 
     if (userPosts.length < 1)
       throw new Error('not found')

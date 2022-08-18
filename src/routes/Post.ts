@@ -11,8 +11,8 @@ router.get('/findpostbyuserid/:id', (request: Request, response: Response) => {
   return postController.findPostByUserId(request, response)
 })
 
-router.get('/getallpublicposts', (request: Request, response: Response) => {
-  return postController.getAllPostsFromPublicList(request, response)
+router.get('/findallpublicposts', (request: Request, response: Response) => {
+  return postController.findAllPostsFromPublicList(request, response)
 })
 
 export default router

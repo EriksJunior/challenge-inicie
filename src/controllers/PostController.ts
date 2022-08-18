@@ -30,11 +30,11 @@ export class PostController {
     }
   }
 
-  async getAllPostsFromPublicList(req: Request, res: Response): Promise<Response> {
+  async findAllPostsFromPublicList(req: Request, res: Response): Promise<Response> {
     try {
-      const result = await this.#postService.getAllPostsFromPublicList()
+      const result = await this.#postService.findAllPostsFromPublicList()
 
-      return res.status(200).json({ post: result })
+      return res.status(200).json({ posts: result })
     } catch (error: any) {
       return res.status(404).json({ erro: error.message })
     }
