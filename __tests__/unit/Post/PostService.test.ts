@@ -1,65 +1,34 @@
-import { UserService } from "../../../src/services/UserService"
+import { PostService } from "../../../src/services/PostService"
 import { GoRestProvider } from "../../../src/providers/GoRestProvider"
-import { UserValidate } from "../../../src/validators/UserValidate"
-import { UserEntity } from "../../../src/entities/UserEntity"
+import { PostValidade } from "../../../src/validators/PostValidade"
+import { PostEntity } from "../../../src/entities/PostEntity"
 
-describe("Create a user", () => {
+describe("Create a post", () => {
   const goRestProvider = new GoRestProvider()
-  const userService = new UserService(goRestProvider, UserValidate)
+  const postService = new PostService(goRestProvider, PostValidade)
 
-  const mockUserData: UserEntity = {
-    name: 'User Test',
-    email: 'usertest@test60.com',
-    gender: 'male',
-    status: 'active'
+  const mockUPostData: PostEntity = {
+    user_id: '1776',
+    title: 'title test',
+    body: 'body test'
   }
 
 
-  it('Must be able to create a new user', async () => {
-    const id = await userService.createUser(mockUserData)
+  it('Must be able to creates a new user post', async () => {
+    const id = await postService.createsAuserPost(mockUPostData)
+
     expect(id).toHaveProperty('id')
   })
 
-  it('It should not be possible to create a user with an existing email', async () => {
-    await expect(userService.createUser(mockUserData)).rejects.toEqual(
-      new Error('this user email is already in use')
-    )
+  it('Must be able to find posts by user id', async () => {
+    const posts = await postService.findPostByUserId(mockUPostData.user_id)
+
+    expect(posts).toEqual(expect.arrayContaining([]))
   })
 
-  it('Must be able to find all users', async () => {
-    const goRestProvider = new GoRestProvider()
-    const userService = new UserService(goRestProvider, UserValidate)
+  it('Must be able to find all posts from public list', async () => {
+    const posts = await postService.findAllPostsFromPublicList()
 
-    const users = await userService.findUserAll()
-
-    const mockedDataUsers = users.map((e) => {
-      const mockedUsers = {
-        id: e.id,
-        name: e.name,
-        email: e.email,
-        gender: e.gender,
-        status: e.status
-      }
-      return mockedUsers
-    })
-
-    expect(users).toStrictEqual(mockedDataUsers);
+    expect(posts).toEqual(expect.arrayContaining([]))
   })
-
-  it('Must be able to find user by id', async () => {
-    const id = 1876
-
-    const user = await userService.findUserById(id)
-
-    expect(user).toStrictEqual(
-      expect.objectContaining({
-        id: expect.any(Number || String),
-        name: expect.any(String),
-        email: expect.any(String),
-        gender: expect.any(String),
-        status: expect.any(String)
-      }),
-    );
-  })
-
 })

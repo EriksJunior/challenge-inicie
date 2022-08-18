@@ -9,7 +9,7 @@ describe("Create a user", () => {
 
   const mockUserData: UserEntity = {
     name: 'User Test',
-    email: 'usertest@test60.com',
+    email: 'usertest@test61.com',
     gender: 'male',
     status: 'active'
   }
@@ -27,23 +27,9 @@ describe("Create a user", () => {
   })
 
   it('Must be able to find all users', async () => {
-    const goRestProvider = new GoRestProvider()
-    const userService = new UserService(goRestProvider, UserValidate)
-
     const users = await userService.findUserAll()
 
-    const mockedDataUsers = users.map((e) => {
-      const mockedUsers = {
-        id: e.id,
-        name: e.name,
-        email: e.email,
-        gender: e.gender,
-        status: e.status
-      }
-      return mockedUsers
-    })
-
-    expect(users).toStrictEqual(mockedDataUsers);
+    expect(users).toEqual(expect.arrayContaining([]))
   })
 
   it('Must be able to find user by id', async () => {

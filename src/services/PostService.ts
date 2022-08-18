@@ -12,7 +12,7 @@ export class PostService {
     this.#postValidade = postValidade
   }
 
-  async createsAuserPost(value: PostEntity): Promise<string> {
+  async createsAuserPost(value: PostEntity): Promise<object> {
     const post = new PostEntity(value)
 
     const validationResult = this.#postValidade.validate(post)
@@ -20,7 +20,8 @@ export class PostService {
     if (validationResult.error)
       throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
 
-    return await this.#goRestProvider.createsAuserPost(post)
+    const id = await this.#goRestProvider.createsAuserPost(post)
+    return { id }
   }
 
   async findPostByUserId(id: string): Promise<Array<object>> {
@@ -36,7 +37,7 @@ export class PostService {
     const userPosts = await this.#goRestProvider.findAllPostsFromPublicList()
 
     if (userPosts.length < 1)
-      throw new Error('not found')
+      throw new Error('no public list post found')
 
     return userPosts
   }

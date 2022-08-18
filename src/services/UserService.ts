@@ -17,7 +17,12 @@ export class UserService {
   }
 
   async findUserAll(): Promise<Array<UserEntity>> {
-    return await this.#goRestProvider.findUserAll()
+    const allUsers = await this.#goRestProvider.findUserAll()
+
+    if(allUsers.length < 1)
+      throw new Error('no user found')
+
+    return allUsers
   }
 
   async createUser(value: UserEntity): Promise<object> {

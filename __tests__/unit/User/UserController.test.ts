@@ -5,7 +5,7 @@ import app from '../../../src/app'
 describe('create user controller', () => {
   const mockUserData = {
     name: 'User Test',
-    email: 'usertest@test60.com',
+    email: 'usertest@test61.com',
     gender: 'male',
     status: 'active'
   }
