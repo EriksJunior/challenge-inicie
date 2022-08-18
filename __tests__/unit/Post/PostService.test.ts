@@ -7,7 +7,7 @@ describe("Create a post", () => {
   const goRestProvider = new GoRestProvider()
   const postService = new PostService(goRestProvider, PostValidade)
 
-  const mockUPostData: PostEntity = {
+  const mockPostData: PostEntity = {
     user_id: '1776',
     title: 'title test',
     body: 'body test'
@@ -15,13 +15,13 @@ describe("Create a post", () => {
 
 
   it('Must be able to creates a new user post', async () => {
-    const id = await postService.createsAuserPost(mockUPostData)
+    const id = await postService.createsAuserPost(mockPostData)
 
     expect(id).toHaveProperty('id')
   })
 
   it('Must be able to find posts by user id', async () => {
-    const posts = await postService.findPostByUserId(mockUPostData.user_id)
+    const posts = await postService.findPostByUserId(mockPostData.user_id)
 
     expect(posts).toEqual(expect.arrayContaining([]))
   })
