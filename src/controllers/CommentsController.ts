@@ -19,11 +19,11 @@ export class CommentsController {
     }
   }
 
-  async createFirstCommentInPublicPostList(req: Request, res: Response) {
+  async createCommentTheFirstPostInListPublic(req: Request, res: Response) {
     try {
       const data = req.body
 
-      const id = await this.#commentsService.createFirstCommentInPublicPostList(data)
+      const id = await this.#commentsService.createCommentTheFirstPostInListPublic(data)
 
       return res.status(201).json({ id: id })
     } catch (error: any) {

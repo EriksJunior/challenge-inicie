@@ -30,9 +30,9 @@ export class PostController {
     }
   }
 
-  async findAllPostsFromPublicList(req: Request, res: Response): Promise<Response> {
+  async searchForTheLatest(req: Request, res: Response): Promise<Response> {
     try {
-      const result = await this.#postService.findAllPostsFromPublicList()
+      const result = await this.#postService.searchForTheLatest()
 
       return res.status(200).json({ posts: result })
     } catch (error: any) {

@@ -32,8 +32,18 @@ class GoRestProvider {
     return data
   }
 
-  async findAllPostsFromPublicList(): Promise<Array<PostEntity>> {
+  async searchForTheLatest(): Promise<Array<PostEntity>> {
     const { data } = await axios.get('https://gorest.co.in/public/v2/posts')
+    return data
+  }
+
+  async findTotalPostPublicListPages(): Promise<number | string> {
+    const data = await axios.get('https://gorest.co.in/public/v2/posts')
+    return data.headers['x-pagination-pages']
+  }
+
+  async findPostsFromPublicListPerPage(page: number): Promise<Array<PostEntity>> {
+    const { data } = await axios.get(`https://gorest.co.in/public/v2/posts?page=${page}`)
     return data
   }
 
@@ -42,7 +52,7 @@ class GoRestProvider {
     return data.id
   }
 
-  async createFirstCommentInPublicPostList(value: CommentsEntity): Promise<string> {
+  async createCommentTheFirstPostInListPublic(value: CommentsEntity): Promise<string> {
     const { data } = await http.post('/comments', value)
     return data.id
   }

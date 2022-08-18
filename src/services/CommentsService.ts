@@ -24,10 +24,12 @@ export class CommentsService {
     return await this.#goRestProvider.createCommentOnPost(comment)
   }
 
-  async createFirstCommentInPublicPostList(value: CommentsEntity): Promise<string> {
-    const allPosts = await this.#goRestProvider.findAllPostsFromPublicList()
+  async createCommentTheFirstPostInListPublic(value: CommentsEntity): Promise<string> {
+    const totalsPage = await this.#goRestProvider.findTotalPostPublicListPages()
 
-    const fistPost = allPosts[allPosts.length - 1]
+    const fisPosts = await this.#goRestProvider.findPostsFromPublicListPerPage(totalsPage as number)
+
+    const fistPost = fisPosts[fisPosts.length - 1]
 
     const comment = new CommentsEntity({ ...value, post_id: fistPost.id })
 
@@ -36,7 +38,7 @@ export class CommentsService {
     if (validationResult.error)
       throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
 
-    return await this.#goRestProvider.createFirstCommentInPublicPostList(comment)
+    return await this.#goRestProvider.createCommentTheFirstPostInListPublic(comment)
   }
 
   async findCommentsByPublicPostId(value: string) {

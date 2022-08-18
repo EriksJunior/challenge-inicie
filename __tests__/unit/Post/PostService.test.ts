@@ -26,8 +26,8 @@ describe("Create a post", () => {
     expect(posts).toEqual(expect.arrayContaining([]))
   })
 
-  it('Must be able to find all posts from public list', async () => {
-    const posts = await postService.findAllPostsFromPublicList()
+  it('Must be able to find search for the latest', async () => {
+    const posts = await postService.searchForTheLatest()
 
     expect(posts).toEqual(expect.arrayContaining([]))
   })

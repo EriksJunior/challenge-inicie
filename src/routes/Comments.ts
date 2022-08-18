@@ -7,8 +7,8 @@ router.post('/createcomment', (request: Request, response: Response) => {
   return commentsController.createCommentOnPost(request, response)
 })
 
-router.post('/createcommentpublicpostlist', (request: Request, response: Response) => {
-  return commentsController.createFirstCommentInPublicPostList(request, response)
+router.post('/createcommentinfistpostpublic', (request: Request, response: Response) => {
+  return commentsController.createCommentTheFirstPostInListPublic(request, response)
 })
 
 router.get('/findcommentsbypublicpostid/:id', (request: Request, response: Response) => {
