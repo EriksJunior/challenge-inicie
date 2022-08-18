@@ -7,7 +7,7 @@ import axios from "axios";
 
 class GoRestProvider {
 
-  async findUserById(id: string): Promise<UserEntity> {
+  async findUserById(id: string | number): Promise<UserEntity> {
     const { data } = await http.get(`/users/${id}`)
     return data
   }

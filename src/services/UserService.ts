@@ -12,7 +12,7 @@ export class UserService {
     this.#userValidate = userValidate
   }
 
-  async findUserById(id: string): Promise<UserEntity> {
+  async findUserById(id: string | number): Promise<UserEntity> {
     return await this.#goRestProvider.findUserById(id)
   }
 

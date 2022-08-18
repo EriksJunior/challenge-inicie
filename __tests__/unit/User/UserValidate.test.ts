@@ -6,7 +6,7 @@ expect.extend(matchers);
 
 describe('validate a user', () => {
 
-  const userData: UserEntity = {
+  const mockUserData: UserEntity = {
     name: 'User Test',
     email: 'usertest@test6.com',
     gender: 'male',
@@ -22,7 +22,7 @@ describe('validate a user', () => {
       status: Joi.string().required().valid('active', 'inactive').messages({ 'string.empty': 'the status cannot be empty', 'any.only': 'fill with active or inactive' })
     }).options({ abortEarly: false })
 
-    expect(userData).toMatchSchema(validationResult)
+    expect(mockUserData).toMatchSchema(validationResult)
   })
 
 })

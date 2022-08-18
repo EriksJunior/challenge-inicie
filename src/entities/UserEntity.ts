@@ -1,5 +1,5 @@
 class UserEntity {
-  id?: string
+  id?: string | number
   name: string
   email: string
   gender: string
