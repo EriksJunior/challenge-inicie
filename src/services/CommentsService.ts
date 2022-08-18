@@ -13,7 +13,7 @@ export class CommentsService {
     this.#goRestProvider = goRestProvider
   }
 
-  async createCommentOnPost(value: CommentsEntity): Promise<string> {
+  async createCommentOnPost(value: CommentsEntity): Promise<object> {
     const comment = new CommentsEntity(value)
 
     const validationResult = await this.#commentsValidate.validate(comment)
@@ -21,7 +21,9 @@ export class CommentsService {
     if (validationResult.error)
       throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
 
-    return await this.#goRestProvider.createCommentOnPost(comment)
+    const id = await this.#goRestProvider.createCommentOnPost(comment)
+
+    return { id }
   }
 
   async createCommentTheFirstPostInListPublic(value: CommentsEntity): Promise<string> {
