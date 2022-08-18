@@ -25,7 +25,7 @@ export class CommentsService {
   }
 
   async createFirstCommentInPublicPostList(value: CommentsEntity): Promise<string> {
-    const allPosts = await this.#goRestProvider.getAllPostsFromPublicList()
+    const allPosts = await this.#goRestProvider.findAllPostsFromPublicList()
 
     const fistPost = allPosts[allPosts.length - 1]
 
