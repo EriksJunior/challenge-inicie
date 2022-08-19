@@ -8,7 +8,7 @@ describe("Create a post", () => {
   const postService = new PostService(goRestProvider, PostValidade)
 
   const mockPostData: PostEntity = {
-    user_id: '1776',
+    user_id: '3720',
     title: 'title test',
     body: 'body test'
   }

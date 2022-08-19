@@ -2,9 +2,11 @@
 import request from 'supertest'
 import app from '../../../src/app'
 
+import { PostEntity } from '../../../src/entities/PostEntity'
+
 describe('creates a user post', () => {
-  const mockPostData = {
-    user_id: '1776',
+  const mockPostData: PostEntity = {
+    user_id: '3720',
     title: 'title test',
     body: 'body test'
   }
@@ -28,7 +30,7 @@ describe('creates a user post', () => {
 
   it('Must be able to find all posts from public list', async () => {
     const res = await request(app)
-      .get(`/post/findallpublicposts`)
+      .get(`/post/searchforthelatest`)
 
     expect(res.status).toEqual(200)
     expect(res.body).toHaveProperty('posts')

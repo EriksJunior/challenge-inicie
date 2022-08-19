@@ -11,7 +11,7 @@ router.get('/findpostbyuserid/:id', (request: Request, response: Response) => {
   return postController.findPostByUserId(request, response)
 })
 
-router.get('/findallpublicposts', (request: Request, response: Response) => {
+router.get('/searchforthelatest', (request: Request, response: Response) => {
   return postController.searchForTheLatest(request, response)
 })
 
