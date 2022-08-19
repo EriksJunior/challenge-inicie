@@ -82,6 +82,6 @@ ou
 yarn test NOME_DO_ARQUIVO.test.ts
 ```
 
-
+## A documentação do projeto esta na pasta raiz do sistema, documentation.txt
 
 
