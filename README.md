@@ -82,6 +82,22 @@ ou
 yarn test NOME_DO_ARQUIVO.test.ts
 ```
 
+## Docker
+- Montando uma imagem, ex:
+```
+docker build -t nome_imagem/teste .
+```
+
+- Criar o conteiner com base na imagem que esta sendo usada, ex:
+```
+quando for acessado a porta 3002 no navegador, é informado que queremos usar a porta 3002 do conteiner,
+por isso o 3002 'porta que estou chamando' : 3002 'porta que quero chamar onde o docker esta executando'
+
+docker run -p 3002:3002 -d nome_imagem/teste
+```
+
 ## A documentação do projeto esta na pasta raiz do sistema, documentation.txt
+
+
 
 
