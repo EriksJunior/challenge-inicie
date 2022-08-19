@@ -32,7 +32,6 @@ http://localhost:3001/user
 - Buscar usuário por id
   /finduserbyid/:id - GET
 ```
-<hr> </hr>
 
 ### Posts Routes 
 ```
@@ -47,7 +46,6 @@ http://localhost:3001/post
 - Buscar postagens mais recentes
   /searchforthelatest - GET
 ```
-<hr> </hr>
 
 ### Comments Routes 
 ```
@@ -65,9 +63,8 @@ http://localhost:3001/comments
 - Deletar um comentário
   /deletecomment/:id - DELETE
 ```
-<hr> </hr>
 
-### Realização de testes na aplicação
+## Realização de testes na aplicação
 - Esta sendo utilizado o JEST como ferramenta para relização de testes
 
 - Comando para rodar os testes na aplicação inteira
