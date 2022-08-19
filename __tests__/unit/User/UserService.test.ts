@@ -9,7 +9,7 @@ describe("Create a user", () => {
 
   const mockUserData: UserEntity = {
     name: 'User Test',
-    email: 'usertest@test61.com',
+    email: 'usertest@test68.com',
     gender: 'male',
     status: 'active'
   }

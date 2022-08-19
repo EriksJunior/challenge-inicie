@@ -7,7 +7,7 @@ import { UserEntity } from '../../../src/entities/UserEntity'
 describe('create user controller', () => {
   const mockUserData: UserEntity = {
     name: 'User Test',
-    email: 'usertest@test65.com',
+    email: 'usertest@test67.com',
     gender: 'male',
     status: 'active'
   }
