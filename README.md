@@ -9,7 +9,7 @@
  
 - Dentro do arquivo <b>.env</b> você pode editar a porta em que o servidor ira rodar e também será necessário colocar o token que a api fornece para autenticação.
 
-#### Url para o site que fornece as informações para realizações de testes sendo uma REST API e também para gerar o token de autenticação
+#### Url para o site que fornece as informações para realizações de testes e também para gerar o token de autenticação
     https://gorest.co.in/- Site
     
     https://gorest.co.in/consumer/login - Gerar token
@@ -65,7 +65,25 @@ http://localhost:3001/comments
 - Deletar um comentário
   /deletecomment/:id - DELETE
 ```
+<hr> </hr>
 
+### Realização de testes na aplicação
+- Esta sendo utilizado o JEST como ferramenta para relização de testes
+
+- Comando para rodar os testes na aplicação inteira
+
+```
+npm test
+ou
+yarn test
+```
+
+- Caso queira rodar o teste somente de um arquivo, deve ser executado o comando utilizado como exemplo abaixo
+```
+npm test NOME_DO_ARQUIVO.test.ts
+ou
+yarn test NOME_DO_ARQUIVO.test.ts
+```
 
 
 
