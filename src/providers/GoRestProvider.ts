@@ -57,13 +57,14 @@ class GoRestProvider {
     return data.id
   }
 
-  async findCommentsByPublicPostId(id: string): Promise<Array<PostEntity>> {
+  async findCommentsByPublicPostId(id: number | string): Promise<Array<PostEntity>> {
     const { data } = await http.get(`/posts/${id}/comments`)
     return data
   }
 
-  async deleteComment(id: string) {
-    await http.delete(`https://gorest.co.in/public/v2/comments/${id}`)
+  async deleteComment(id: string | number) {
+    const result = await http.delete(`https://gorest.co.in/public/v2/comments/${id}`)
+    return result
   }
 
 }

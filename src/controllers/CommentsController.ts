@@ -48,7 +48,7 @@ export class CommentsController {
       const { id } = req.params
 
       await this.#commentsService.deleteComment(id)
-      
+
       return res.status(200).json({ message: 'comment deleted' })
     } catch (error: any) {
       return res.status(error)

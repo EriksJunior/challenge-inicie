@@ -26,7 +26,7 @@ export class CommentsService {
     return { id }
   }
 
-  async createCommentTheFirstPostInListPublic(value: CommentsEntity): Promise<string> {
+  async createCommentTheFirstPostInListPublic(value: CommentsEntity): Promise<object> {
     const totalsPage = await this.#goRestProvider.findTotalPostPublicListPages()
 
     const fisPosts = await this.#goRestProvider.findPostsFromPublicListPerPage(totalsPage as number)
@@ -40,14 +40,16 @@ export class CommentsService {
     if (validationResult.error)
       throw JoiErrorHandlingJoi.JoiErrorHandling(validationResult.error.details)
 
-    return await this.#goRestProvider.createCommentTheFirstPostInListPublic(comment)
+    const id = await this.#goRestProvider.createCommentTheFirstPostInListPublic(comment)
+
+    return { id }
   }
 
-  async findCommentsByPublicPostId(value: string) {
+  async findCommentsByPublicPostId(value: string | number) {
     return await this.#goRestProvider.findCommentsByPublicPostId(value)
   }
 
-  async deleteComment(value: string) {
-    await this.#goRestProvider.deleteComment(value)
+  async deleteComment(value: string | number) {
+    return await this.#goRestProvider.deleteComment(value)
   }
 }
