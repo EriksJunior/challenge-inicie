@@ -1,6 +1,6 @@
-FROM node:14.17.3
+FROM node:16.13.1
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src
 
 COPY package*.json ./
 RUN npm install
@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 3002
 
-CMD ["npm", "dev"]
+CMD ["npm", "run", "dev"]
