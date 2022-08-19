@@ -2,7 +2,7 @@
 
 ### Deve ser realizado o clone do projeto
 
-- Após o clone, abra o terminal e rode o comando <b>yarn install</b> ou <b>npm install</b>
+- Após o clone, abra o terminal e execute o comando <b>yarn install</b> ou <b>npm install</b>
 
 - Esta sendo utilizado variáveis de ambiente no projeto, então é necessário que após instalar as dependências no passo acima,
  você procure pelo arquivo <b>.env.sample</b> na pasta raiz do sistema, copie, cole e renomeie o arquivo para <b>.env</b>
@@ -10,7 +10,7 @@
 - Dentro do arquivo <b>.env</b> você pode editar a porta em que o servidor ira rodar e também será necessário colocar o token que a api fornece para autenticação.
 
 #### Url para o site que fornece as informações para realizações de testes e também para gerar o token de autenticação
-    https://gorest.co.in/- Site
+    https://gorest.co.in/ - Site
     
     https://gorest.co.in/consumer/login - Gerar token
     
