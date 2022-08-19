@@ -2,10 +2,12 @@
 import request from 'supertest'
 import app from '../../../src/app'
 
+import { UserEntity } from '../../../src/entities/UserEntity'
+
 describe('create user controller', () => {
-  const mockUserData = {
+  const mockUserData: UserEntity = {
     name: 'User Test',
-    email: 'usertest@test61.com',
+    email: 'usertest@test65.com',
     gender: 'male',
     status: 'active'
   }
