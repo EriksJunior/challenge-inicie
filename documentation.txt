@@ -1,0 +1,35 @@
+
+Pasta __tests__: nessa pasta tem somente o teste de unidade
+
+Pasta src/config: nessa pasta fica a configuração padrão de base url, utilizando o axios e ja passando o token no headers
+
+Pasta src/controllers: nessa pasta ficam os arquivos responsáveis por retornarem a resposta para o usuário, o arquivo index.js é onde ficam
+  as injeções de dependências
+
+Pasta src/entities: nessa pasta ficam as entidades, que modela objetos cuja informação é recebida e é repassada adiante
+
+Pasta src/providers: nessa pasta ficam os serviços externos, que são responsáveis por consumir alguma api externa
+
+Pasta src/routes: nessa pasta temos o arquivo index.js, onde fica as rotas com prefixo, e os demais arquivos são as rotas com os seus 
+  respectivos end points
+
+Pasta src/services: nessa pasta fica o tratamento dos dados e validações antes de serem passados adiante para o serviço externo.
+
+Pasta src/utils: nessa pasta fica somente um tratamento de erro do JoiValidator
+
+Pasta src/validators: nessa pasta fica a validação de usuários, onde é exportado e utilizado em todos os serviços
+
+
+Na aplicação deve conter o arquivo .env, que é uma cópia do .env.sample, temos a variável de ambiente PORT e TOKEN_API_REST,
+a variável PORT deve receber a porta em que o servidor ira ficar rodando, e a TOKEN_API_REST deve receber o teken de autenticação
+https://gorest.co.in/ - Site
+
+https://gorest.co.in/consumer/login - Gerar token
+
+
+
+
+
+
+
+
