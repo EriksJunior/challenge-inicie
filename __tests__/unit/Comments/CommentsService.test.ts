@@ -39,7 +39,7 @@ describe("Create a comments", () => {
   })
 
   it('Must be able to delete comment by id', async () => {
-    const id = 1928
+    const id = 1935
 
     const statusCode = await commentsService.deleteComment(id)
 

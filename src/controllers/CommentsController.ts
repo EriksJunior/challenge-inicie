@@ -13,7 +13,7 @@ export class CommentsController {
 
       const id = await this.#commentsService.createCommentOnPost(data)
 
-      return res.status(201).json({ id: id })
+      return res.status(201).json(id)
     } catch (error: any) {
       return res.status(error.response?.status ? error.response.status : 400).json({ erro: error.message ? error.message : error })
     }
@@ -25,7 +25,7 @@ export class CommentsController {
 
       const id = await this.#commentsService.createCommentTheFirstPostInListPublic(data)
 
-      return res.status(201).json({ id: id })
+      return res.status(201).json(id)
     } catch (error: any) {
       return res.status(error.response?.status ? error.response.status : 400).json({ erro: error.message ? error.message : error })
     }

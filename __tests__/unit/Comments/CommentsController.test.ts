@@ -6,16 +6,16 @@ import { CommentsEntity } from '../../../src/entities/CommentsEntity'
 
 describe('Create a comments', () => {
   const mockPostData: CommentsEntity = {
-    post_id: 1,
-    name: "test",
-    email: "trest@teste7658.com",
-    body: "testttttttttttt"
+    post_id: 1906,
+    name: 'test',
+    email: 'trest@teste7658.com',
+    body: 'testttttttttttt'
   }
 
   const mockPostDataFromFistPost: CommentsEntity = {
-    name: "test",
-    email: "trest@teste7658.com",
-    body: "test post public list"
+    name: 'test',
+    email: 'trest@teste7658.com',
+    body: 'test post public list'
   }
 
   it('Must be able to creates a new comment', async () => {
@@ -47,7 +47,7 @@ describe('Create a comments', () => {
   })
 
   it('Must be able to delete comment by id', async () => {
-    const idComment = 1928
+    const idComment = 1950
 
     const res = await request(app)
       .delete(`/comments/deletecomment/${idComment}`)
